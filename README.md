@@ -7,4 +7,4 @@
 [![License](https://poser.pugx.org/gizmocraft/zendframework1-locale/license)](https://packagist.org/packages/gizmocraft/zendframework1-locale)
 
 This is just the Zend_Locale component extracted from our fork of the Zend Framework 1 repo (https://github.com/gizmocraftcom/zf1).
-Originally forked from the upstream repository https://github.com/gizmocraftcom/zf1-locale. Copyright and license of the original authors are kept in LICENSE.txt.
+Originally forked from the upstream repository https://github.com/diablomedia/zf1-locale. Copyright and license of the original authors are kept in LICENSE.txt.
