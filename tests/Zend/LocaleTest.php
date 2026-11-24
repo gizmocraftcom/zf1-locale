@@ -20,6 +20,7 @@
  * @version    $Id $
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Locale
  */
+#[Group('Zend_Locale')]
 class Zend_LocaleTest extends PHPUnit\Framework\TestCase
 {
     private $_cache         = null;
@@ -92,9 +93,7 @@ class Zend_LocaleTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('zh_Hans_CN', Zend_Locale::getAlias('zh_Hans_CN'));
     }
 
-    /**
-     * @group GH-337
-     */
+    #[Group('GH-337')]
     public function testIsLocaleMethodWithAliases()
     {
         $this->assertEquals(true, Zend_Locale::isLocale('zh_CN'));
@@ -884,9 +883,7 @@ class Zend_LocaleTest extends PHPUnit\Framework\TestCase
         $value = new Zend_Locale('TR');
         $this->assertEquals('tr_TR', $value->toString());
     }
-    /**
-     * @group ZF-11072
-     */
+    #[Group('ZF-11072')]
     public function testTranslationReturnsZeroAsNumber()
     {
         $this->assertFalse(Zend_Locale::getTranslation('USD', 'CurrencyFraction'));

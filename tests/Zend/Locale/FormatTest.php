@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Locale
  */
+#[Group('Zend_Locale')]
 class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
 {
     public function setUp(): void
@@ -128,8 +129,8 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
      * test isNumber
      * expected boolean
      *
-     * @group ZF-5879
      */
+    #[Group('ZF-5879')]
     public function testIsNumberENotation()
     {
         $this->assertTrue(Zend_Locale_Format::isNumber('5,0004E+5', array('locale' => 'de_AT')));
@@ -1091,17 +1092,13 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('0,567', Zend_Locale_Format::toNumber(.567, $options));
     }
 
-    /**
-     * @group ZF-9160
-     */
+    #[Group('ZF-9160')]
     public function testGetNumberWithZeroPrecision()
     {
         $this->assertEquals(1234, Zend_Locale_Format::getNumber('1234.567', array('locale' => 'en_US', 'precision' => 0)));
     }
 
-    /**
-     * @group ZF-9319
-     */
+    #[Group('ZF-9319')]
     public function testToNumberWithoutFormatWithPrecision()
     {
         $options = array('locale' => 'de_AT', 'precision' => 2);
@@ -1112,9 +1109,7 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('4,00', Zend_Locale_Format::toNumber(4, $options));
     }
 
-    /**
-     * @group ZF-11837
-     */
+    #[Group('ZF-11837')]
     public function testCheckDateFormatDoesNotEmitNoticeWhenNoOptionsAreNotProvided()
     {
         try {
@@ -1127,9 +1122,7 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group GH-363
-     */
+    #[Group('GH-363')]
     public function testByDefaultCacheShouldBeUsed()
     {
         $value = Zend_Locale_Format::getDate('2014-01-01');
@@ -1137,9 +1130,7 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
         $this->assertTrue(Zend_Locale_Data::hasCache());
     }
 
-    /**
-     * @group GH-363
-     */
+    #[Group('GH-363')]
     public function testZendLocaleDisableCacheShouldNotOverwritten()
     {
         Zend_Locale::disableCache(true);
@@ -1148,9 +1139,7 @@ class Zend_Locale_FormatTest extends PHPUnit\Framework\TestCase
         $this->assertFalse(Zend_Locale_Data::hasCache());
     }
 
-    /**
-     * @group GH-430
-     */
+    #[Group('GH-430')]
     public function testIsIntegerForLocaleZhHK()
     {
         $this->assertTrue(

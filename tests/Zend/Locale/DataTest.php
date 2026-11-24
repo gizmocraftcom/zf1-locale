@@ -20,6 +20,8 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +29,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Locale
  */
+#[Group('Zend_Locale')]
 class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
 {
     private $_cache = null;
@@ -993,8 +995,8 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
 
     /**
      * test for reading defaultNumberingSystem from locale data
-     * @group ZF-10728
      */
+    #[Group('ZF-10728')]
     public function testDefaultNumberingSystem()
     {
         $value = Zend_Locale_Data::getContent('de_AT', 'defaultnumberingsystem');
@@ -7203,9 +7205,7 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('{0} Tag', $value);
     }
 
-    /**
-     * @group ZF-12103
-     */
+    #[Group('ZF-12103')]
     public function testGetListNonexistentTypeReturnsEmptyArray()
     {
         $result = Zend_Locale_Data::getList('de_AT', 'type', 'ddd');
@@ -7213,9 +7213,7 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         $this->assertEmpty($result);
     }
 
-    /**
-     * @group ZF-12103
-     */
+    #[Group('ZF-12103')]
     public function testGetListValidTypeReturnsNonemptyArray()
     {
         $result = Zend_Locale_Data::getList('de_AT', 'type', 'calendar');
@@ -7223,9 +7221,7 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         $this->assertTrue(count($result) > 0);
     }
 
-    /**
-     * @group ZF-12103
-     */
+    #[Group('ZF-12103')]
     public function testGetListEmptyTypeReturnsNonemptyArray()
     {
         $result = Zend_Locale_Data::getList('de_AT', 'type', '');
@@ -7233,10 +7229,8 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         $this->assertTrue(count($result) > 0);
     }
 
-    /**
-     * @group GH-465
-     * @doesNotPerformAssertions
-     */
+    #[Group('GH-465')]
+    #[DoesNotPerformAssertions]
     public function testCreateValidCacheIdsInGetContentMethod()
     {
         try {
@@ -7246,10 +7240,8 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group GH-465
-     * @doesNotPerformAssertions
-     */
+    #[Group('GH-465')]
+    #[DoesNotPerformAssertions]
     public function testCreateValidCacheIdsInGetListMethod()
     {
         try {
@@ -7259,9 +7251,7 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group GH-516
-     */
+    #[Group('GH-516')]
     public function testGetParentLocale()
     {
         // Tests only with locale
@@ -7287,9 +7277,7 @@ class Zend_Locale_DataTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($result);
     }
 
-    /**
-     * @group GH-516
-     */
+    #[Group('GH-516')]
     public function testLocaleWhichHasParentLocale()
     {
         $result = Zend_Locale_Data::getContent('en_HK', 'nametocurrency', 'XAF');
